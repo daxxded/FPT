@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>TPF – Matematica</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body);"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1f1f1f;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tabs a {
+      color: #ccc;
+      margin-right: 2rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .tabs a:hover {
+      color: #9ff;
+    }
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #fff;
+    }
+    code {
+      color: #9ff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="tabs">
+    <a href="teoria.html">🌌 Teoria</a>
+    <a href="matematica.html">📐 Matematica</a>
+  </div>
+</header>
+
+<div class="section">
+  <h1>Matematica della Teoria del Punto Fondamentale (TPF)</h1>
+
+  <h2>1. Stato del Punto Fondamentale</h2>
+  <p>Le dimensioni dinamiche sono rappresentate come componenti di un vettore complesso:</p>
+  <p>$$ \vec{\phi}(t) = \begin{bmatrix}s_1(t) \\\\ s_2(t) \\\\ \vdots \\\\ s_n(t)\end{bmatrix} \in \mathbb{C}^n $$</p>
+
+  <h2>2. Evoluzione Caotica</h2>
+  <p>Ogni dimensione evolve secondo una funzione non lineare accoppiata:</p>
+  <p>
+    $$ s_i(t+1) = \lambda_i s_i(t) \left(1 - |s_i(t)|\right) + \sum_{j \ne i} \alpha_{ij} \cdot \sin(\Re(s_j(t))) $$
+  </p>
+  <ul>
+    <li>\( \lambda_i \in \mathbb{R^+} \): parametro di instabilità dimensionale</li>
+    <li>\( \alpha_{ij} \): coefficiente di accoppiamento tra le dimensioni</li>
+    <li>\( \Re(s) \): parte reale del numero complesso</li>
+  </ul>
+
+  <h2>3. Funzione di Coerenza Interna</h2>
+  <p>
+    $$ C(t) = \frac{1}{n} \sum_{i=1}^n \exp\left(-\gamma \cdot |s_i(t+1) - s_i(t)|^2\right) $$
+  </p>
+  <p>Lo stato è <strong>coerente</strong> e quindi "renderizzabile" se:</p>
+  <p>
+    $$ C(t) > \delta $$
+  </p>
+
+  <h2>4. Funzione di Rendering</h2>
+  <p>La realtà osservabile è proiettata da una funzione lineare applicata al vettore delle dimensioni:</p>
+  <p>
+    $$ R(\vec{\phi}(t)) = M \cdot \vec{\phi}(t) $$
+  </p>
+  <p>Dove \( M \in \mathbb{R}^{k \times n} \) è una matrice di proiezione nello spazio osservabile \( \mathbb{R}^k \).</p>
+
+  <h2>5. Tempo come Sequenza Ordinata</h2>
+  <p>
+    $$ \mathcal{T} = \{ \vec{\phi}(t_0), \vec{\phi}(t_1), ..., \vec{\phi}(t_n) \} \quad \text{con } C(\vec{\phi}(t_i), \vec{\phi}(t_{i+1})) > \delta $$
+  </p>
+
+  <h2>6. Assiomi del Rendering</h2>
+  <h3>Assioma 1: Composizione Totale</h3>
+  <p>$$ \vec{\phi}(t) \in \mathbb{C}^n $$</p>
+
+  <h3>Assioma 2: Funzione di Interferenza</h3>
+  <p>
+    $$ \mathcal{I}(\vec{\phi}) = \sum_{i,j=1}^{n} \omega_{ij} \cdot \cos\left( \theta_{ij}(t) \right) $$
+  </p>
+
+  <h3>Assioma 3: Condizione di Rendering</h3>
+  <p>$$ \mathcal{I}(\vec{\phi}(t)) > \delta $$</p>
+
+  <h3>Assioma 4: Proiezione Ontologica</h3>
+  <p>$$ R(\vec{\phi}(t)) = \mathcal{P}(\vec{\phi}(t)) $$</p>
+
+  <h3>Assioma 5: Tempo come Ordine di Stabilità</h3>
+  <p>$$ \mathcal{T} = \{ \phi_i \in PF \mid \mathcal{I}(\phi_i) > \delta \} $$</p>
+
+  <h2>7. Caso Esemplificato (n = 3)</h2>
+  <p>
+    $$ \lambda = [2.5, 3.2, 2.8], \quad \vec{\phi}(0) = \begin{bmatrix}0.5 + 0.2i \\\\ -0.3 + 0.1i \\\\ 0.7\end{bmatrix} $$
+  </p>
+  <p>
+    $$ \alpha = \begin{bmatrix} 0 & 0.2 & -0.1 \\\\ -0.3 & 0 & 0.4 \\\\ 0.1 & -0.2 & 0 \end{bmatrix}, \quad M = \begin{bmatrix}1 & 0 & 0.5\end{bmatrix} $$
+  </p>
+  <p>
+    $$ R(\vec{\phi}(t)) = s_1(t) + 0.5 \cdot s_3(t) $$
+  </p>
+
+  <h2>8. Spazio Osservabile Emergete</h2>
+  <p>Lo spazio fisico percepito è uno spazio costruito dinamicamente dalla sequenza dei frame coerenti:</p>
+  <p>
+    $$ \mathcal{S} = \{ R(\vec{\phi}(t)) \in \mathbb{R}^k \mid C(t) > \delta \} $$
+  </p>
+</div>
+
+</body>
+</html>
